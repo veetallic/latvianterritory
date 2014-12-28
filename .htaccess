@@ -1,0 +1,10 @@
+RewriteEngine on
+
+# Esošie faili 
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .* - [L]
+
+# Visus pārējos — uz index
+RewriteCond $1 !^(index\.php)
+RewriteRule ^(.*)$ index.php

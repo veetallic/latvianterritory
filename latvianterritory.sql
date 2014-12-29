@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2014 at 12:44 AM
+-- Generation Time: Dec 29, 2014 at 01:44 PM
 -- Server version: 5.5.40-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -30,11 +30,11 @@ CREATE TABLE IF NOT EXISTS `novadi` (
   `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nosaukums` varchar(25) NOT NULL,
   `tips` int(11) NOT NULL DEFAULT '1' COMMENT 'Novads, pagasts u.c.',
-  `paklauts` int(11) NOT NULL DEFAULT '2' COMMENT 'Vecākelementa ID',
+  `paklauts` int(11) NOT NULL DEFAULT '5' COMMENT 'Vecākelementa ID',
   PRIMARY KEY (`id`),
   KEY `paklauts` (`paklauts`),
   KEY `tips_id` (`tips`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Novadi un to teritoriālā iedalījuma vienības' AUTO_INCREMENT=114 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Novadi un to teritoriālā iedalījuma vienības' AUTO_INCREMENT=126 ;
 
 --
 -- Truncate table before insert `novadi`
@@ -158,7 +158,19 @@ INSERT INTO `novadi` (`id`, `nosaukums`, `tips`, `paklauts`) VALUES
 (0000000110, 'Aglonas', 1, 2),
 (0000000111, 'Grāveru', 1, 2),
 (0000000112, 'Kastuļinas', 1, 2),
-(0000000113, 'Šķeltovas', 1, 2);
+(0000000113, 'Šķeltovas', 1, 2),
+(0000000114, 'Aizkraukles', 1, 3),
+(0000000115, 'Aizkraukles', 2, 3),
+(0000000116, 'Aizputes', 1, 4),
+(0000000117, 'Aizputes', 2, 4),
+(0000000118, 'Cīravas', 1, 4),
+(0000000119, 'Kalvenes', 1, 4),
+(0000000120, 'Kazdangas', 1, 4),
+(0000000121, 'Lažas', 1, 4),
+(0000000122, 'Aknīstes', 1, 5),
+(0000000123, 'Aknīstes', 2, 5),
+(0000000124, 'Asares', 1, 5),
+(0000000125, 'Gārsenes', 1, 5);
 
 -- --------------------------------------------------------
 

@@ -8,6 +8,7 @@
 
 		$query = 'SELECT
 				n.`id`,
+				n.`tips`,
 				concat(n.nosaukums, " ", t.nosaukums) as `nosaukums`,
 				concat(n.`paklauts`, " ", n2.`nosaukums`, " ", t2.`nosaukums`) as `paklauts`
 			FROM `novadi` n

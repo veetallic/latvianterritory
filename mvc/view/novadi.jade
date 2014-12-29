@@ -1,0 +1,21 @@
+extends _layout
+block content
+    article
+        h1 Novadu saraksts
+        
+        table(border="1")
+            thead
+                tr
+                    th ID
+                    th Nosaukums
+                    th Tips
+                    th Pakļauts
+            tbody
+                <?php foreach ($res as $r) : ?>
+                tr
+                    td <?php echo $r->id ?>
+                    td: a(href!="/novads/<?php echo $r->id ?>") <?php echo $r->nosaukums ?>
+                    td <?php echo $r->tips ?>
+                    td <?php echo $r->paklauts ?>
+                <?php endforeach ?>
+        

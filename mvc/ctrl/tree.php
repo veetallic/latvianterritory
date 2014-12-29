@@ -20,7 +20,7 @@
 
 	$tree = new Tree($res, 'paklauts', 'paklautie');
 
-	$t = $tree->getTree();
+	$t = $tree->displayTree('nosaukums', 'ol');
 
 	require 'mvc' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'tree.html';
 	

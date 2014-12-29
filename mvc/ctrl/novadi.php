@@ -8,5 +8,5 @@
 	$table = 'novadi';
 	$res = $db->get($table);
 
-	require 'mvc' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'test.html';
+	require 'mvc' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'novadi.html';
 	

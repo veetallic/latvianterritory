@@ -11,7 +11,7 @@
 			DSN = 'mysql:dbname=latvianterritory;host=localhost',
 			USER = 'latvianterritory',
 			PASS = 'latvianterritory',
-			DEFAULT_CONTROLLER = 'test';
+			DEFAULT_CONTROLLER = 'novadi';
 
 	}
 	

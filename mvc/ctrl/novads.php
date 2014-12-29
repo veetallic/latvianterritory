@@ -10,7 +10,8 @@
 				n.`id`,
 				n.`tips`,
 				concat(n.nosaukums, " ", t.nosaukums) as `nosaukums`,
-				concat(n.`paklauts`, " ", n2.`nosaukums`, " ", t2.`nosaukums`) as `paklauts`
+				n.`paklauts`,
+				concat(n.`paklauts`, " ", n2.`nosaukums`, " ", t2.`nosaukums`) as `vecaks`
 			FROM `novadi` n
 			INNER JOIN `tipi` t
 			ON t.`id` = n.`tips`
@@ -30,9 +31,11 @@
 		    'pagasti' => $uri[1]
 		);
 
-		$res = $db->query($query, $params);
+		$res = $db->query($query, $params, PDO::FETCH_ASSOC);
+		$tree = new Tree($res, 'paklauts', 'paklautie');
+		$dt = $tree->displayTree('nosaukums');
 
-		require 'mvc' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'test.html';
+		require 'mvc' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'novads.html';
 	} else {
 		header('Location: ' . rtrim($_SERVER['REQUEST_URI'], '/') . '/1');
 	}

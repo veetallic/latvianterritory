@@ -8,14 +8,10 @@
 		require 'core' . DIRECTORY_SEPARATOR . $class . '.php';
 	}
 
-	$uri = trim($_SERVER['REQUEST_URI'], '/');
-	$ctrl = $uri ? $uri : Config::DEFAULT_CONTROLLER;
-
-	var_dump($ctrl);
+	$uri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+	$ctrl = $uri[0] ? $uri[0] : Config::DEFAULT_CONTROLLER;
 
 	$ctrl = 'mvc' . DIRECTORY_SEPARATOR . 'ctrl' . DIRECTORY_SEPARATOR . $ctrl . '.php';
 
 	if (file_exists($ctrl))
 		require $ctrl;
-
-	

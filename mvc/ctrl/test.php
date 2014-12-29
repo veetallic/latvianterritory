@@ -1,11 +1,12 @@
 <?php
 
-	echo __FILE__;
+	if (!defined('INDEX'))
+		exit;
 
 	$db = new DB(Config::DSN, Config::USER, Config::PASS);
 
-	var_dump($db);
-
 	$table = 'novadi';
-	var_dump($db->get($table));
+	$res = $db->get($table);
+
+	require 'mvc' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'test.html';
 	

@@ -20,7 +20,38 @@
 
 		public function get($table) {
 			$query = 'select * from `' . $table . '`';
-			return $this->query($query, PDO::FETCH_OBJ)->fetchAll();
+			$res = FALSE;
+
+			try {
+				$res = $this->query($query);
+			} catch (PDOException $e) {
+				exit($e->getMessage());
+			}
+
+			return $res;
+		}
+
+		public function query($query, $params = NULL) {
+			$res = FALSE;
+
+			if (!$params) {
+				try {
+					$res = parent::query($query, PDO::FETCH_OBJ)->fetchAll();
+				} catch (PDOException $e) {
+					exit($e->getMessage());
+				}
+			} else {
+				try {
+					$this->sth = $this->prepare($query);
+					$this->sth->execute($params);
+					$this->sth->setFetchMode(PDO::FETCH_OBJ);
+					$res = $this->sth->fetchAll();
+				} catch (PDOException $e) {
+					exit($e->getMessage());
+				}
+			}
+
+			return $res;
 		}
 
 	}
